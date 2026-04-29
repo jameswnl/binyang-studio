@@ -710,53 +710,6 @@
     }
 
     /* ========== SPECIAL OFFER ========== */
-    .offer {
-      background: linear-gradient(135deg, var(--burgundy-dk), var(--burgundy), var(--sienna));
-      padding: 4rem 2rem;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .offer::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0.04;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-    }
-    .offer-inner {
-      position: relative;
-      z-index: 2;
-    }
-    .offer-ornament {
-      width: 40px; height: 40px;
-      margin: 0 auto 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .offer-ornament svg {
-      width: 100%; height: 100%;
-      stroke: var(--gold-light);
-      stroke-width: 1;
-      fill: none;
-    }
-    .offer-text-zh {
-      font-family: 'Noto Serif SC', serif;
-      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
-      font-weight: 600;
-      color: var(--cream);
-      letter-spacing: 0.08em;
-      margin-bottom: 0.5rem;
-    }
-    .offer-text-en {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      color: var(--gold-pale);
-      letter-spacing: 0.04em;
-    }
-
     /* ========== CONTACT ========== */
     .contact {
       background: var(--parchment);
@@ -995,8 +948,6 @@
       .feature-card { padding: 2rem 1rem; }
       .feature-card::before { display: none; }
 
-      .offer { padding: 3rem 1.5rem; }
-
       .float-phone { bottom: 1.2rem; right: 1.2rem; width: 50px; height: 50px; }
       .float-phone svg { width: 20px; height: 20px; }
     }
@@ -1203,16 +1154,6 @@
     </div>
   </section>
 
-  <!-- ===== SPECIAL OFFER ===== -->
-  <section class="offer">
-    <div class="offer-inner reveal">
-      <div class="offer-ornament">
-        <svg viewBox="0 0 40 40"><path d="M20 4l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z"/></svg>
-      </div>
-      <p class="offer-text-zh">报名有惊喜！锁定前20名学员优惠价！</p>
-      <p class="offer-text-en">Sign up now — special pricing for the first 20 students!</p>
-    </div>
-  </section>
 
   <!-- ===== CONTACT ===== -->
   <section class="contact" id="contact">
