@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>杨缤 Fine Arts Studio — Yang Bin Atelier</title>
+  <meta name="description" content="杨缤画室 — 从系统培养到专业提升。Return to the Purest Mentorship System. Fine art education in Bergen County, NJ.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Noto+Serif+SC:wght@300;400;500;600;700&family=Outfit:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ========== RESET & FOUNDATION ========== */
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --parchment:    #F6F1E7;
+      --parchment-dk: #EDE5D4;
+      --cream:        #FFFDF7;
+      --umber:        #5E3A1A;
+      --umber-light:  #7A5230;
+      --sienna:       #9C5A30;
+      --gold:         #C29038;
+      --gold-light:   #D4A84B;
+      --gold-pale:    #E8CFA0;
+      --burgundy:     #6B2737;
+      --burgundy-dk:  #4E1A28;
+      --charcoal:     #2A2420;
+      --warm-gray:    #8C7E72;
+      --warm-gray-lt: #B5A99B;
+      --ink:          #1E1915;
+      --white:        #FEFCF8;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body {
+      font-family: 'Outfit', 'Noto Serif SC', sans-serif;
+      background: var(--parchment);
+      color: var(--charcoal);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* Canvas / paper texture overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 256px 256px;
+    }
+
+    /* ========== TYPOGRAPHY ========== */
+    .font-display {
+      font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+    }
+    .font-zh {
+      font-family: 'Noto Serif SC', serif;
+    }
+    .font-body {
+      font-family: 'Outfit', sans-serif;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+      font-weight: 400;
+      line-height: 1.2;
+    }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(36px);
+      transition: opacity 0.9s cubic-bezier(0.23, 1, 0.32, 1),
+                  transform 0.9s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+    .reveal-delay-4 { transition-delay: 0.48s; }
+
+    /* ========== NAVIGATION ========== */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 2rem;
+      transition: background 0.4s, box-shadow 0.4s, padding 0.4s;
+    }
+    nav.scrolled {
+      background: rgba(246, 241, 231, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 1px 0 rgba(94, 58, 26, 0.08);
+    }
+    .nav-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      transition: height 0.4s;
+    }
+    nav.scrolled .nav-inner { height: 60px; }
+
+    .nav-logo {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--umber);
+      letter-spacing: 0.02em;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .nav-logo .en {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: var(--umber-light);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px; left: 0;
+      width: 0; height: 1px;
+      background: var(--gold);
+      transition: width 0.3s;
+    }
+    .nav-links a:hover { color: var(--gold); }
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      background: var(--umber);
+      color: var(--cream) !important;
+      padding: 0.5rem 1.2rem;
+      border-radius: 2px;
+      font-size: 0.78rem !important;
+      letter-spacing: 0.12em !important;
+      transition: background 0.3s !important;
+    }
+    .nav-cta::after { display: none !important; }
+    .nav-cta:hover { background: var(--gold) !important; color: var(--cream) !important; }
+
+    /* Mobile menu */
+    .nav-toggle {
+      display: none;
+      background: none; border: none; cursor: pointer;
+      width: 28px; height: 20px; position: relative;
+    }
+    .nav-toggle span {
+      display: block;
+      width: 100%; height: 2px;
+      background: var(--umber);
+      position: absolute; left: 0;
+      transition: all 0.3s;
+    }
+    .nav-toggle span:nth-child(1) { top: 0; }
+    .nav-toggle span:nth-child(2) { top: 9px; }
+    .nav-toggle span:nth-child(3) { top: 18px; }
+    .nav-toggle.open span:nth-child(1) { top: 9px; transform: rotate(45deg); }
+    .nav-toggle.open span:nth-child(2) { opacity: 0; }
+    .nav-toggle.open span:nth-child(3) { top: 9px; transform: rotate(-45deg); }
+
+    /* ========== HERO ========== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #3D2B1F 0%, #5E3A1A 30%, #7A5230 55%, #9C5A30 80%, #C29038 100%);
+    }
+
+    /* Painterly atmosphere */
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 20% 80%, rgba(107,39,55,0.35) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 80% at 85% 20%, rgba(194,144,56,0.2) 0%, transparent 50%),
+        radial-gradient(ellipse 100% 100% at 50% 50%, rgba(30,25,21,0.15) 0%, transparent 70%);
+    }
+
+    /* Canvas grain on hero */
+    .hero::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.06;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='5' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 512px 512px;
+      mix-blend-mode: overlay;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      max-width: 860px;
+      padding: 2rem;
+    }
+
+    /* Decorative brush stroke above title */
+    .hero-ornament {
+      width: 120px;
+      height: 3px;
+      margin: 0 auto 2.5rem;
+      background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+      border-radius: 2px;
+      position: relative;
+    }
+    .hero-ornament::before,
+    .hero-ornament::after {
+      content: '';
+      position: absolute;
+      width: 6px; height: 6px;
+      background: var(--gold-light);
+      border-radius: 50%;
+      top: -1.5px;
+    }
+    .hero-ornament::before { left: -10px; }
+    .hero-ornament::after { right: -10px; }
+
+    .hero-title-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 700;
+      font-size: clamp(2.6rem, 6vw, 4.5rem);
+      color: var(--cream);
+      letter-spacing: 0.12em;
+      margin-bottom: 0.2rem;
+      text-shadow: 0 2px 30px rgba(0,0,0,0.2);
+    }
+
+    .hero-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 300;
+      font-size: clamp(1.1rem, 2.5vw, 1.65rem);
+      color: var(--gold-pale);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-tagline {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 300;
+      font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+      color: rgba(255,253,247,0.75);
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-tagline-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+      font-style: italic;
+      font-size: clamp(0.9rem, 1.6vw, 1.1rem);
+      color: rgba(255,253,247,0.5);
+      margin-bottom: 3rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      border: 1px solid var(--gold-light);
+      color: var(--gold-pale);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.85rem;
+      font-style: italic;
+      letter-spacing: 0.15em;
+      padding: 0.55rem 1.6rem;
+      margin-bottom: 3rem;
+    }
+
+    .hero-scroll {
+      display: block;
+      margin: 0 auto;
+      width: 24px; height: 40px;
+      border: 1.5px solid rgba(255,253,247,0.3);
+      border-radius: 12px;
+      position: relative;
+      cursor: pointer;
+      background: none;
+    }
+    .hero-scroll::before {
+      content: '';
+      width: 3px; height: 8px;
+      background: var(--gold-pale);
+      border-radius: 2px;
+      position: absolute;
+      left: 50%; top: 8px;
+      transform: translateX(-50%);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 1; top: 8px; }
+      50% { opacity: 0.3; top: 18px; }
+    }
+
+    /* ========== SECTION SHARED ========== */
+    section {
+      padding: 6rem 2rem;
+    }
+    .section-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      font-weight: 400;
+      color: var(--umber);
+      margin-bottom: 0.5rem;
+      line-height: 1.25;
+    }
+    .section-title-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.2rem, 2vw, 1.4rem);
+      font-weight: 400;
+      color: var(--warm-gray);
+      margin-bottom: 1rem;
+    }
+    .section-divider {
+      width: 60px; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-pale));
+      margin-bottom: 3rem;
+    }
+
+    /* ========== PHILOSOPHY / KEY FEATURES ========== */
+    .philosophy {
+      background: var(--cream);
+    }
+    .philosophy-subtitle {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 400;
+      color: var(--umber);
+      margin-bottom: 0.3rem;
+    }
+    .philosophy-subtitle-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      margin-bottom: 3rem;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2.5rem;
+    }
+
+    .feature-card {
+      text-align: center;
+      padding: 2.5rem 1.5rem;
+      position: relative;
+    }
+    .feature-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: 40px; height: 1px;
+      background: var(--gold-pale);
+    }
+
+    .feature-icon {
+      width: 52px; height: 52px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .feature-icon svg {
+      width: 100%; height: 100%;
+      stroke: var(--gold);
+      stroke-width: 1;
+      fill: none;
+    }
+
+    .feature-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.92rem;
+      font-weight: 400;
+      color: var(--umber);
+      line-height: 1.8;
+      margin-bottom: 0.6rem;
+    }
+    .feature-en {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+      line-height: 1.7;
+    }
+
+    /* ========== INSTRUCTOR ========== */
+    .instructor {
+      background: var(--parchment);
+      position: relative;
+    }
+    .instructor::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+    }
+
+    .instructor-layout {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .instructor-portrait {
+      position: relative;
+      aspect-ratio: 3/4;
+      background: linear-gradient(135deg, var(--parchment-dk), var(--warm-gray-lt));
+      overflow: hidden;
+    }
+    .instructor-portrait::after {
+      content: '';
+      position: absolute;
+      inset: 12px;
+      border: 1px solid var(--gold-pale);
+      pointer-events: none;
+    }
+    .portrait-placeholder {
+      width: 100%; height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+    .portrait-placeholder svg {
+      width: 64px; height: 64px;
+      stroke: var(--warm-gray);
+      stroke-width: 0.8;
+      fill: none;
+      opacity: 0.5;
+    }
+    .portrait-placeholder span {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      color: var(--warm-gray);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .instructor-info {
+      padding-top: 1rem;
+    }
+    .instructor-name-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 2rem;
+      font-weight: 600;
+      color: var(--umber);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.3rem;
+    }
+    .instructor-name-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 400;
+      color: var(--warm-gray);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .credential-list {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+    .credential-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(194,144,56,0.12);
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .credential-list li:last-child { border-bottom: none; }
+    .cred-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.9rem;
+      font-weight: 400;
+      color: var(--umber);
+    }
+    .cred-en {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 300;
+      color: var(--warm-gray);
+    }
+
+    .instructor-summary {
+      background: linear-gradient(135deg, rgba(194,144,56,0.06), rgba(194,144,56,0.02));
+      border-left: 2px solid var(--gold);
+      padding: 1.2rem 1.5rem;
+      margin-top: 1rem;
+    }
+    .instructor-summary .font-zh {
+      font-size: 0.9rem;
+      color: var(--umber);
+      margin-bottom: 0.3rem;
+    }
+    .instructor-summary .font-body {
+      font-size: 0.8rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+    }
+
+    /* ========== PROGRAMS ========== */
+    .programs {
+      background: var(--charcoal);
+      position: relative;
+      overflow: hidden;
+    }
+    .programs::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.03;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+      background-size: 400px;
+    }
+    .programs .section-label { color: var(--gold-light); }
+    .programs .section-title { color: var(--cream); }
+    .programs .section-title-zh { color: var(--warm-gray-lt); }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .programs-row-2 {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .program-card {
+      background: rgba(255,253,247,0.04);
+      border: 1px solid rgba(194,144,56,0.12);
+      padding: 2rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+      cursor: default;
+    }
+    .program-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 2px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-light));
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .program-card:hover {
+      background: rgba(194,144,56,0.06);
+      border-color: rgba(194,144,56,0.25);
+      transform: translateY(-4px);
+    }
+    .program-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .program-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: rgba(194,144,56,0.25);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+    .program-title-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--cream);
+      margin-bottom: 0.2rem;
+    }
+    .program-title-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      font-style: italic;
+      color: var(--gold-pale);
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .program-desc {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 300;
+      color: var(--warm-gray-lt);
+      line-height: 1.8;
+    }
+
+    /* ========== STUDENT ACCEPTANCES ========== */
+    .acceptances {
+      background: var(--cream);
+      position: relative;
+    }
+    .acceptances::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+    }
+
+    .acceptances-intro {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      margin-bottom: 3rem;
+      max-width: 580px;
+    }
+
+    .schools-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
+    .school-item {
+      padding: 1.1rem 1.5rem;
+      border-bottom: 1px solid rgba(194,144,56,0.08);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: background 0.3s;
+    }
+    .school-item:hover {
+      background: rgba(194,144,56,0.04);
+    }
+    .school-marker {
+      width: 6px; height: 6px;
+      background: var(--gold);
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .school-name {
+      font-family: 'Cormorant Garamond', 'Noto Serif SC', serif;
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--umber);
+      letter-spacing: 0.02em;
+    }
+    .school-name-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.85rem;
+      color: var(--warm-gray);
+      margin-left: 0.4rem;
+    }
+
+    /* ========== SPECIAL OFFER ========== */
+    .offer {
+      background: linear-gradient(135deg, var(--burgundy-dk), var(--burgundy), var(--sienna));
+      padding: 4rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .offer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      opacity: 0.04;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 300 300' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+    .offer-inner {
+      position: relative;
+      z-index: 2;
+    }
+    .offer-ornament {
+      width: 40px; height: 40px;
+      margin: 0 auto 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .offer-ornament svg {
+      width: 100%; height: 100%;
+      stroke: var(--gold-light);
+      stroke-width: 1;
+      fill: none;
+    }
+    .offer-text-zh {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+      font-weight: 600;
+      color: var(--cream);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.5rem;
+    }
+    .offer-text-en {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--gold-pale);
+      letter-spacing: 0.04em;
+    }
+
+    /* ========== CONTACT ========== */
+    .contact {
+      background: var(--parchment);
+      position: relative;
+    }
+    .contact::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-pale), transparent);
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+    }
+
+    .contact-info h3 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--umber);
+      margin-bottom: 0.3rem;
+    }
+    .contact-info .sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: var(--warm-gray);
+      margin-bottom: 2rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid rgba(194,144,56,0.1);
+    }
+    .contact-item:last-child { border-bottom: none; }
+
+    .contact-icon {
+      width: 20px; height: 20px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .contact-icon svg {
+      width: 100%; height: 100%;
+      stroke: var(--gold);
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .contact-detail {
+      display: flex;
+      flex-direction: column;
+      gap: 0.15rem;
+    }
+    .contact-detail .label {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--warm-gray);
+    }
+    .contact-detail .value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--umber);
+    }
+    .contact-detail a {
+      color: var(--umber);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .contact-detail a:hover { color: var(--gold); }
+
+    .contact-schedule {
+      padding-top: 1rem;
+    }
+    .schedule-box {
+      background: rgba(194,144,56,0.06);
+      border: 1px solid rgba(194,144,56,0.12);
+      padding: 2rem;
+      text-align: center;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+    .schedule-title {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .schedule-times {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.1rem;
+      color: var(--umber);
+      margin-bottom: 0.2rem;
+    }
+    .schedule-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-style: italic;
+      color: var(--warm-gray);
+    }
+    .schedule-note {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.85rem;
+      color: var(--umber);
+    }
+    .schedule-note-en {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.78rem;
+      color: var(--warm-gray);
+      font-weight: 300;
+    }
+
+    .contact-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      background: var(--umber);
+      color: var(--cream);
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.82rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 0.85rem 2rem;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      margin-top: 0.5rem;
+    }
+    .contact-cta svg {
+      width: 16px; height: 16px;
+      stroke: currentColor;
+      stroke-width: 1.5;
+      fill: none;
+    }
+    .contact-cta:hover { background: var(--gold); }
+
+    /* ========== FOOTER ========== */
+    footer {
+      background: var(--ink);
+      padding: 2.5rem 2rem;
+      text-align: center;
+    }
+    .footer-name {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.9rem;
+      color: rgba(255,253,247,0.4);
+      letter-spacing: 0.08em;
+      margin-bottom: 0.3rem;
+    }
+    .footer-copy {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.72rem;
+      color: rgba(255,253,247,0.2);
+      letter-spacing: 0.1em;
+    }
+
+    /* ========== FLOATING PHONE ========== */
+    .float-phone {
+      position: fixed;
+      bottom: 2rem; right: 2rem;
+      width: 56px; height: 56px;
+      background: var(--gold);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 20px rgba(194,144,56,0.35);
+      z-index: 900;
+      text-decoration: none;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .float-phone:hover {
+      transform: scale(1.08);
+      box-shadow: 0 6px 28px rgba(194,144,56,0.45);
+    }
+    .float-phone svg {
+      width: 24px; height: 24px;
+      stroke: var(--cream);
+      stroke-width: 2;
+      fill: none;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 900px) {
+      .features-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+      .instructor-layout { grid-template-columns: 1fr; gap: 2rem; }
+      .instructor-portrait { max-width: 320px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .programs-row-2 { grid-template-columns: 1fr; max-width: 100%; }
+      .schools-grid { grid-template-columns: 1fr; }
+      .contact-layout { grid-template-columns: 1fr; gap: 2rem; }
+    }
+
+    @media (max-width: 720px) {
+      section { padding: 4rem 1.5rem; }
+
+      .nav-links {
+        display: none;
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(246, 241, 231, 0.97);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 2rem;
+      }
+      .nav-links.open { display: flex; }
+      .nav-links a {
+        font-size: 1rem;
+        letter-spacing: 0.15em;
+      }
+      .nav-toggle { display: block; z-index: 1001; }
+
+      .hero { min-height: 90vh; }
+      .hero-title-zh { letter-spacing: 0.06em; }
+
+      .features-grid { gap: 0; }
+      .feature-card { padding: 2rem 1rem; }
+      .feature-card::before { display: none; }
+
+      .offer { padding: 3rem 1.5rem; }
+
+      .float-phone { bottom: 1.2rem; right: 1.2rem; width: 50px; height: 50px; }
+      .float-phone svg { width: 20px; height: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="mainNav">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo">
+        杨缤 <span class="en">Fine Arts</span>
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#philosophy" onclick="closeNav()">Philosophy</a></li>
+        <li><a href="#instructor" onclick="closeNav()">Instructor</a></li>
+        <li><a href="#programs" onclick="closeNav()">Programs</a></li>
+        <li><a href="#acceptances" onclick="closeNav()">Acceptances</a></li>
+        <li><a href="#contact" onclick="closeNav()" class="nav-cta">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <div class="hero-content">
+      <div class="hero-ornament"></div>
+      <div class="hero-badge">Proven Results in Competitions &amp; Applications</div>
+      <h1>
+        <div class="hero-title-zh">杨缤 Fine Arts Studio</div>
+        <div class="hero-title-en">From Strong Foundations to Advanced Development</div>
+      </h1>
+      <p class="hero-tagline">杨缤画室，回归最纯粹的师徒制教学</p>
+      <p class="hero-tagline-en">Yang Bin Atelier — Return to the Purest Mentorship System</p>
+      <a href="#philosophy" class="hero-scroll" aria-label="Scroll down"></a>
+    </div>
+  </section>
+
+  <!-- ===== PHILOSOPHY ===== -->
+  <section class="philosophy" id="philosophy">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Our Philosophy</div>
+        <h2 class="section-title">A Return to Mastery</h2>
+        <div class="section-title-zh">从系统培养到专业提升</div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card reveal reveal-delay-1">
+          <div class="feature-icon">
+            <svg viewBox="0 0 52 52"><circle cx="26" cy="20" r="8"/><path d="M12 44c0-8 6-14 14-14s14 6 14 14"/><path d="M38 18l6 0" opacity="0.4"/><path d="M40 12l4 4" opacity="0.4"/></svg>
+          </div>
+          <p class="feature-zh">由杨缤老师全程亲授<br>小班化教学，一对一指导</p>
+          <p class="feature-en">Personally taught by Instructor Yang. Small-class teaching with one-on-one personalized guidance.</p>
+        </div>
+        <!-- Feature 2 -->
+        <div class="feature-card reveal reveal-delay-2">
+          <div class="feature-icon">
+            <svg viewBox="0 0 52 52"><rect x="8" y="6" width="28" height="36" rx="1"/><path d="M14 14h16M14 20h12M14 26h14"/><path d="M40 16l4 4-12 12-4 0 0-4z"/></svg>
+          </div>
+          <p class="feature-zh">助力打造意蕴深刻<br>表现力十足的艺术作品</p>
+          <p class="feature-en">Helping create profound and expressive works of art.</p>
+        </div>
+        <!-- Feature 3 -->
+        <div class="feature-card reveal reveal-delay-3">
+          <div class="feature-icon">
+            <svg viewBox="0 0 52 52"><path d="M26 6l6 12 14 2-10 10 2 14-12-6-12 6 2-14L6 20l14-2z"/></svg>
+          </div>
+          <p class="feature-zh">以专业视角悉心指导<br>助力常青藤名校申请</p>
+          <p class="feature-en">Guided by Expert Insight, Empowering Your Ivy League Admissions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INSTRUCTOR ===== -->
+  <section class="instructor" id="instructor">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">The Instructor</div>
+        <h2 class="section-title">Master & Mentor</h2>
+        <div class="section-title-zh">导师简介</div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="instructor-layout">
+        <div class="instructor-portrait reveal reveal-delay-1">
+          <div class="portrait-placeholder">
+            <svg viewBox="0 0 64 64"><circle cx="32" cy="22" r="10"/><path d="M14 58c0-10 8-18 18-18s18 8 18 18"/></svg>
+            <span>Instructor Photo</span>
+          </div>
+        </div>
+
+        <div class="instructor-info reveal reveal-delay-2">
+          <div class="instructor-name-zh">杨 缤</div>
+          <div class="instructor-name-en">Yang Bin</div>
+
+          <ul class="credential-list">
+            <li>
+              <span class="cred-zh">中国艺术研究院油画硕士</span>
+              <span class="cred-en">Master of Fine Arts in Oil Painting, Chinese National Academy of Arts</span>
+            </li>
+            <li>
+              <span class="cred-zh">中国油画院特邀艺术家</span>
+              <span class="cred-en">Guest Artist, Chinese Academy of Oil Painting</span>
+            </li>
+            <li>
+              <span class="cred-zh">中俄油画创作高研班成员</span>
+              <span class="cred-en">Member of the Sino-Russian Advanced Oil Painting Studio</span>
+            </li>
+            <li>
+              <span class="cred-en">MFA in Oil Painting, China Academy of Art (CAAS)</span>
+            </li>
+            <li>
+              <span class="cred-en">Professional Artist &amp; Educator</span>
+            </li>
+          </ul>
+
+          <div class="instructor-summary">
+            <p class="font-zh">深耕教学与AP作品集多年，经验积淀丰厚</p>
+            <p class="font-body">With years of profound experience in teaching and AP portfolio development.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== PROGRAMS ===== -->
+  <section class="programs" id="programs">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Programs</div>
+        <h2 class="section-title">Courses We Offer</h2>
+        <div class="section-title-zh">课程体系</div>
+        <div class="section-divider" style="background: linear-gradient(90deg, var(--gold), transparent);"></div>
+      </div>
+
+      <div class="programs-grid">
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-number">01</div>
+          <div class="program-title-zh">艺术素养基础</div>
+          <div class="program-title-en">Art Foundation</div>
+          <p class="program-desc">培养观察能力，绘画基础与色彩理论素养<br><br>Develop observational skills, drawing fundamentals, and color theory literacy.</p>
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-number">02</div>
+          <div class="program-title-zh">艺术技高班</div>
+          <div class="program-title-en">Advanced Prep</div>
+          <p class="program-desc">系统绘画功底，色彩和构图经典写实与表达<br><br>Systematic drawing skills, classical realism with expressive color and composition.</p>
+        </div>
+        <div class="program-card reveal reveal-delay-3">
+          <div class="program-number">03</div>
+          <div class="program-title-zh">AP作品集辅导</div>
+          <div class="program-title-en">AP Art &amp; Portfolio Preparation</div>
+          <p class="program-desc">针对大学本科申请的作品集辅导<br><br>Portfolio guidance tailored for undergraduate admissions.</p>
+        </div>
+      </div>
+
+      <div class="programs-row-2">
+        <div class="program-card reveal reveal-delay-1">
+          <div class="program-number">04</div>
+          <div class="program-title-zh">儿童创意班</div>
+          <div class="program-title-en">Creative Art Class for Children</div>
+          <p class="program-desc">培养艺术兴趣与创造力，助力孩子开发创造力与艺术表达能力<br><br>Nurture artistic curiosity and creativity in young learners.</p>
+        </div>
+        <div class="program-card reveal reveal-delay-2">
+          <div class="program-number">05</div>
+          <div class="program-title-zh">成人油画兴趣班</div>
+          <div class="program-title-en">Adult Oil Painting Class</div>
+          <p class="program-desc">丰实家长创意力，汇渡风景花卉静物之乐<br><br>Explore the joy of painting landscapes, florals, and still life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== ACCEPTANCES ===== -->
+  <section class="acceptances" id="acceptances">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Proven Results</div>
+        <h2 class="section-title">Student Acceptances</h2>
+        <div class="section-title-zh">历年学生录取院校</div>
+        <div class="section-divider"></div>
+        <p class="acceptances-intro">Our students have been admitted to some of the most prestigious art programs and universities worldwide.</p>
+      </div>
+
+      <div class="schools-grid">
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">New York University <span class="school-name-zh">(NYU)</span></span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">Rhode Island School of Design <span class="school-name-zh">(RISD)</span></span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">Columbia University</span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">TU Delft</span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">Istituto Marangoni</span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">中央美术学院 <span class="school-name-zh">(CAFA)</span></span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">中央美术学院附中</span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">北京服装学院 <span class="school-name-zh">(BIFT)</span></span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">Accademia di Belle Arti di Milano</span></div>
+        <div class="school-item reveal"><span class="school-marker"></span><span class="school-name">University of Richmond</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SPECIAL OFFER ===== -->
+  <section class="offer">
+    <div class="offer-inner reveal">
+      <div class="offer-ornament">
+        <svg viewBox="0 0 40 40"><path d="M20 4l4 8 9 1-7 6 2 9-8-4-8 4 2-9-7-6 9-1z"/></svg>
+      </div>
+      <p class="offer-text-zh">报名有惊喜！锁定前20名学员优惠价！</p>
+      <p class="offer-text-en">Sign up now — special pricing for the first 20 students!</p>
+    </div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="contact" id="contact">
+    <div class="section-inner">
+      <div class="reveal">
+        <div class="section-label">Get in Touch</div>
+        <h2 class="section-title">Begin Your Journey</h2>
+        <div class="section-title-zh">联系方式</div>
+        <div class="section-divider"></div>
+      </div>
+
+      <div class="contact-layout">
+        <div class="contact-info reveal reveal-delay-1">
+          <h3>联系我们</h3>
+          <p class="sub">We'd love to hear from you</p>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 20 20"><path d="M2 4h16v12H2z"/><path d="M2 4l8 7 8-7"/></svg>
+            </div>
+            <div class="contact-detail">
+              <span class="label">Email</span>
+              <a href="mailto:fanman1115@gmail.com" class="value">fanman1115@gmail.com</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 20 20"><path d="M3 3l4 1 1 4-3 2a12 12 0 005 5l2-3 4 1 1 4c-8 1-15-6-14-14z"/></svg>
+            </div>
+            <div class="contact-detail">
+              <span class="label">Phone</span>
+              <a href="tel:9177084627" class="value">917-708-4627</a>
+            </div>
+          </div>
+
+          <div class="contact-item">
+            <div class="contact-icon">
+              <svg viewBox="0 0 20 20"><path d="M10 2C6 2 3 5.6 3 10c0 5 7 8 7 8s7-3 7-8c0-4.4-3-8-7-8z"/><circle cx="10" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-detail">
+              <span class="label">Location</span>
+              <span class="value">New Jersey, Bergen County</span>
+            </div>
+          </div>
+
+          <a href="tel:9177084627" class="contact-cta">
+            <svg viewBox="0 0 20 20"><path d="M3 3l4 1 1 4-3 2a12 12 0 005 5l2-3 4 1 1 4c-8 1-15-6-14-14z"/></svg>
+            Book a Trial Class
+          </a>
+        </div>
+
+        <div class="contact-schedule reveal reveal-delay-2">
+          <div class="schedule-box">
+            <div class="schedule-title">Schedule</div>
+            <div>
+              <div class="schedule-times">工作日 / 周末</div>
+              <div class="schedule-sub">Weekdays &amp; Weekends</div>
+            </div>
+            <div style="width:40px;height:1px;background:var(--gold-pale);"></div>
+            <div>
+              <div class="schedule-note">欢迎免费咨询试课</div>
+              <div class="schedule-note-en">Feel free to inquire about trial classes</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p class="footer-name">杨缤 Fine Arts Studio</p>
+    <p class="footer-copy">&copy; 2026 Yang Bin Atelier. All rights reserved.</p>
+  </footer>
+
+  <!-- ===== FLOATING PHONE BUTTON ===== -->
+  <a href="tel:9177084627" class="float-phone" aria-label="Call us">
+    <svg viewBox="0 0 24 24"><path d="M3 3l5 1 1 5-3 3a14 14 0 006 6l3-3 5 1 1 5c-10 1-19-8-18-18z"/></svg>
+  </a>
+
+  <script>
+    /* ===== NAV SCROLL ===== */
+    const nav = document.getElementById('mainNav');
+    const toggle = document.getElementById('navToggle');
+    const links = document.getElementById('navLinks');
+
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 40);
+    }, { passive: true });
+
+    toggle.addEventListener('click', () => {
+      toggle.classList.toggle('open');
+      links.classList.toggle('open');
+    });
+
+    function closeNav() {
+      toggle.classList.remove('open');
+      links.classList.remove('open');
+    }
+
+    /* ===== SCROLL REVEAL ===== */
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
