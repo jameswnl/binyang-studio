@@ -923,16 +923,25 @@
     @media (max-width: 720px) {
       section { padding: 4rem 1.5rem; }
 
+      nav.menu-open {
+        height: 100vh;
+        background: var(--parchment) !important;
+        backdrop-filter: none !important;
+        -webkit-backdrop-filter: none !important;
+      }
+      nav.menu-open .nav-inner {
+        height: 100%;
+      }
       .nav-links {
         display: none;
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 100vh;
         background: var(--parchment);
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 2rem;
-        z-index: 1000;
       }
       .nav-links.open { display: flex; }
       .nav-links a {
@@ -1245,11 +1254,13 @@
     toggle.addEventListener('click', () => {
       toggle.classList.toggle('open');
       links.classList.toggle('open');
+      nav.classList.toggle('menu-open');
     });
 
     function closeNav() {
       toggle.classList.remove('open');
       links.classList.remove('open');
+      nav.classList.remove('menu-open');
     }
 
     /* ===== SCROLL REVEAL ===== */
