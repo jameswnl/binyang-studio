@@ -964,35 +964,6 @@
 </head>
 <body>
 
-  <!-- ===== DRAFT GATE ===== -->
-  <div id="draftGate" style="position:fixed;inset:0;z-index:99999;background:var(--parchment);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:1.5rem;">
-    <div style="font-family:'Noto Serif SC',serif;font-size:1.2rem;color:var(--umber);letter-spacing:0.05em;">Draft Preview</div>
-    <input id="draftPass" type="password" placeholder="Enter passcode" style="font-family:'Outfit',sans-serif;font-size:1rem;padding:0.6rem 1.2rem;border:1px solid var(--gold-pale);background:var(--cream);color:var(--umber);text-align:center;outline:none;width:220px;">
-    <div id="draftError" style="font-family:'Outfit',sans-serif;font-size:0.8rem;color:var(--burgundy);display:none;">Incorrect passcode</div>
-  </div>
-  <script>
-  (function(){
-    var code = 'yangbin';
-    if (sessionStorage.getItem('draft_ok') === '1') {
-      document.getElementById('draftGate').style.display = 'none';
-      return;
-    }
-    document.body.style.overflow = 'hidden';
-    document.getElementById('draftPass').addEventListener('keydown', function(e) {
-      if (e.key === 'Enter') {
-        if (this.value === code) {
-          sessionStorage.setItem('draft_ok', '1');
-          document.getElementById('draftGate').style.display = 'none';
-          document.body.style.overflow = '';
-        } else {
-          document.getElementById('draftError').style.display = 'block';
-          this.value = '';
-        }
-      }
-    });
-  })();
-  </script>
-
   <!-- ===== NAVIGATION ===== -->
   <nav id="mainNav">
     <div class="nav-inner">
